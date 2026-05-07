@@ -47,11 +47,13 @@ my-cc-skills/
 
 生成 draw.io 图表文件，支持导出为 PNG/SVG/PDF。
 
-- 支持流程图、架构图、ER 图等多种图表类型
+- 支持流程图、架构图、ER 图、序列图、类图等多种图表类型
 - 直接生成 mxGraphModel XML 格式
-- 支持 draw.io CLI 导出
+- 支持 draw.io CLI 导出，自动适配 WSL2/macOS/Linux/Windows 平台
+- 集成边路由后处理优化（@drawio/postprocess）
+- 包含完整的 XML 参考规范和故障排除指南
 
-**许可**: 同根目录 [MIT](LICENSE)
+**许可**: [Apache 2.0](skills/drawio/LICENSE) — JGraph Ltd (2025)
 
 ---
 
@@ -101,9 +103,9 @@ Excel 电子表格（`.xlsx`/`.xlsm`/`.csv`/`.tsv`）的创建、编辑和分析
 |------|------|------|
 | code-reverse-engineering | MIT | Elon Z (2026) |
 | 工程师行为准则 | MIT | Elon Z (2026) |
-| drawio | MIT | — |
+| drawio | Apache 2.0 | JGraph Ltd (2025) |
 | docx | Anthropic 专有许可 | Anthropic, PBC (2025) |
 | pdf | Anthropic 专有许可 | Anthropic, PBC (2025) |
 | xlsx | Anthropic 专有许可 | Anthropic, PBC (2025) |
 
-自研内容采用 [MIT License](LICENSE)，其他来自 Anthropic 官方 Skill 目录的内容采用其对应的 [Anthropic 专有许可](skills/docx/LICENSE.txt)。
+自研内容采用 [MIT License](LICENSE)，drawio 技能采用 [Apache 2.0 License](skills/drawio/LICENSE)（JGraph Ltd），其他来自 Anthropic 官方 Skill 目录的内容采用其对应的 [Anthropic 专有许可](skills/docx/LICENSE.txt)。
