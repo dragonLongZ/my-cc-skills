@@ -9,15 +9,31 @@ my-cc-skills/
 ├── prompt/                          # Prompt 模板
 │   └── 工程师行为准则.md             # Senior Software Engineer 行为准则
 ├── skills/                          # Claude Code 技能
+│   ├── ascii-er-diagram/            # ASCII ER 图生成
 │   ├── code-reverse-engineering/    # 代码逆向分析
 │   ├── docx/                        # Word 文档处理
 │   ├── drawio/                      # draw.io 图表生成
 │   ├── pdf/                         # PDF 处理
+│   ├── skill-creator/               # Skill 创建与优化
 │   └── xlsx/                        # Excel 表格处理
 └── LICENSE
 ```
 
 ## Skills
+
+### ascii-er-diagram — ASCII ER 图生成
+
+生成数据库表的纯文本 ASCII 格式 ER 图。
+
+- 中文表名和字段含义，附带业务用途说明
+- 外键关联写明具体字段名（格式 `FK 字段名 → 父表.字段名`）
+- 多态关联、状态枚举值自动标注
+- 表数量超过 10 张时自动附加外键关系汇总表
+- 按功能域分组输出，主表在上、从表在下
+
+**许可**: [MIT](skills/ascii-er-diagram/LICENSE) — Elon Z (2026)
+
+---
 
 ### code-reverse-engineering — 代码逆向分析
 
@@ -72,6 +88,19 @@ PDF 文件的全面处理能力。
 
 ---
 
+### skill-creator — Skill 创建与优化
+
+创建新 Skill、迭代优化已有 Skill，并通过量化评估验证效果。
+
+- 从需求到草稿再到测试用例的完整创建流程
+- 支持批量运行测试 prompt 并量化评估 Skill 表现
+- 内置 eval-viewer 可视化查看运行结果
+- Skill 描述优化器，自动提升 Skill 触发准确率
+
+**许可**: [Anthropic 专有许可](skills/skill-creator/LICENSE.txt) — Anthropic, PBC (2025)
+
+---
+
 ### xlsx — Excel 表格处理
 
 Excel 电子表格（`.xlsx`/`.xlsm`/`.csv`/`.tsv`）的创建、编辑和分析。
@@ -101,11 +130,13 @@ Excel 电子表格（`.xlsx`/`.xlsm`/`.csv`/`.tsv`）的创建、编辑和分析
 
 | 模块 | 许可 | 作者 |
 |------|------|------|
+| ascii-er-diagram | MIT | Elon Z (2026) |
 | code-reverse-engineering | MIT | Elon Z (2026) |
 | 工程师行为准则 | MIT | Elon Z (2026) |
 | drawio | Apache 2.0 | JGraph Ltd (2025) |
 | docx | Anthropic 专有许可 | Anthropic, PBC (2025) |
 | pdf | Anthropic 专有许可 | Anthropic, PBC (2025) |
+| skill-creator | Anthropic 专有许可 | Anthropic, PBC (2025) |
 | xlsx | Anthropic 专有许可 | Anthropic, PBC (2025) |
 
 自研内容采用 [MIT License](LICENSE)，drawio 技能采用 [Apache 2.0 License](skills/drawio/LICENSE)（JGraph Ltd），其他来自 Anthropic 官方 Skill 目录的内容采用其对应的 [Anthropic 专有许可](skills/docx/LICENSE.txt)。
