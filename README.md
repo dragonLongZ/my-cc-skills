@@ -14,6 +14,7 @@ my-cc-skills/
 │   ├── docx/                        # Word 文档处理
 │   ├── drawio/                      # draw.io 图表生成
 │   ├── pdf/                         # PDF 处理
+│   ├── readme-commit-push/          # README 更新 + Git 提交推送
 │   ├── skill-creator/               # Skill 创建与优化
 │   └── xlsx/                        # Excel 表格处理
 └── LICENSE
@@ -89,6 +90,21 @@ PDF 文件的全面处理能力。
 
 ---
 
+### readme-commit-push — README 更新 + Git 提交推送
+
+根据项目最新代码变更自动更新 README 文档，创建规范的 git commit，并推送到远程仓库。
+
+- 自动分析 git diff 和最近提交记录，理解变更类型
+- 按功能新增、Bug 修复、重构优化等类型智能判断是否需要更新 README
+- 遵循项目现有 README 风格进行更新
+- 生成符合规范的 commit message（feat/fix/docs/refactor/chore）
+- 自动 push 到远程仓库
+- 内置安全检查，避免误提交敏感文件或构建产物
+
+**许可**: [MIT](skills/readme-commit-push/LICENSE) — Elon Z (2026)
+
+---
+
 ### skill-creator — Skill 创建与优化
 
 创建新 Skill、迭代优化已有 Skill，并通过量化评估验证效果。
@@ -133,6 +149,7 @@ Excel 电子表格（`.xlsx`/`.xlsm`/`.csv`/`.tsv`）的创建、编辑和分析
 |------|------|------|
 | ascii-er-diagram | MIT | Elon Z (2026) |
 | code-reverse-engineering | MIT | Elon Z (2026) |
+| readme-commit-push | MIT | Elon Z (2026) |
 | 工程师行为准则 | MIT | Elon Z (2026) |
 | drawio | Apache 2.0 | JGraph Ltd (2025) |
 | docx | Anthropic 专有许可 | Anthropic, PBC (2025) |
