@@ -1,0 +1,35 @@
+ "PreToolUse": [
+
+      {
+        "hooks": [
+          {
+            "command": "powershell -ExecutionPolicy Bypass -File C:/Users/Administrator/.claude/hooks/windows-notification.ps1 -Title \"Claude Code\" -Message \"等待你的回复\"",
+            "timeout": 10,
+            "type": "command"
+          }
+        ],
+        "matcher": "AskUserQuestion"
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "command": "powershell -ExecutionPolicy Bypass -File C:/Users/Administrator/.claude/hooks/windows-notification.ps1 -Title \"Claude Code\" -Message \"需要审批\"",
+            "timeout": 10,
+            "type": "command"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "command": "powershell -ExecutionPolicy Bypass -File C:/Users/Administrator/.claude/hooks/windows-notification.ps1 -Title \"Claude Code\" -Message \"任务已完成\"",
+            "timeout": 10,
+            "type": "command"
+          }
+        ]
+      }
+    ]

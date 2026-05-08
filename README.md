@@ -13,6 +13,7 @@ my-cc-skills/
 │   ├── code-reverse-engineering/    # 代码逆向分析
 │   ├── docx/                        # Word 文档处理
 │   ├── drawio/                      # draw.io 图表生成
+│   ├── grill-me/                    # 设计方案压力测试
 │   ├── pdf/                         # PDF 处理
 │   ├── readme-commit-push/          # README 更新 + Git 提交推送
 │   ├── skill-creator/               # Skill 创建与优化
@@ -72,6 +73,17 @@ my-cc-skills/
 - 包含完整的 XML 参考规范和故障排除指南
 
 **许可**: [Apache 2.0](skills/drawio/LICENSE) — JGraph Ltd (2025)
+
+---
+
+### grill-me — 设计方案压力测试
+
+针对计划或设计对用户进行深度追问，直到达成共识，逐一解决决策树的每个分支。
+
+- 当用户想要压力测试计划、被"拷问"设计方案，或提到"grill me"、"拷问我"、"挑战我的方案"时使用
+- 通过递进式追问帮助发现设计盲点和权衡缺失
+
+**许可**: [MIT](skills/grill-me/LICENSE) — Elon Z (2026)
 
 ---
 
@@ -149,6 +161,7 @@ Excel 电子表格（`.xlsx`/`.xlsm`/`.csv`/`.tsv`）的创建、编辑和分析
 |------|------|------|
 | ascii-er-diagram | MIT | Elon Z (2026) |
 | code-reverse-engineering | MIT | Elon Z (2026) |
+| grill-me | MIT | Elon Z (2026) |
 | readme-commit-push | MIT | Elon Z (2026) |
 | 工程师行为准则 | MIT | Elon Z (2026) |
 | drawio | Apache 2.0 | JGraph Ltd (2025) |
