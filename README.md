@@ -18,6 +18,8 @@ my-cc-skills/
 │   ├── readme-commit-push/          # README 更新 + Git 提交推送
 │   ├── skill-creator/               # Skill 创建与优化
 │   └── xlsx/                        # Excel 表格处理
+├── pluging/                         # 插件
+│   └── windows-notification/        # Windows 桌面通知
 └── LICENSE
 ```
 
@@ -83,7 +85,7 @@ my-cc-skills/
 - 当用户想要压力测试计划、被"拷问"设计方案，或提到"grill me"、"拷问我"、"挑战我的方案"时使用
 - 通过递进式追问帮助发现设计盲点和权衡缺失
 
-**许可**: [MIT](skills/grill-me/LICENSE) — Elon Z (2026)
+**许可**: [MIT](skills/grill-me/LICENSE) — Matt Pocock (2026)
 
 ---
 
@@ -161,7 +163,7 @@ Excel 电子表格（`.xlsx`/`.xlsm`/`.csv`/`.tsv`）的创建、编辑和分析
 |------|------|------|
 | ascii-er-diagram | MIT | Elon Z (2026) |
 | code-reverse-engineering | MIT | Elon Z (2026) |
-| grill-me | MIT | Elon Z (2026) |
+| grill-me | MIT | Matt Pocock (2026) |
 | readme-commit-push | MIT | Elon Z (2026) |
 | 工程师行为准则 | MIT | Elon Z (2026) |
 | drawio | Apache 2.0 | JGraph Ltd (2025) |
@@ -170,4 +172,4 @@ Excel 电子表格（`.xlsx`/`.xlsm`/`.csv`/`.tsv`）的创建、编辑和分析
 | skill-creator | Anthropic 专有许可 | Anthropic, PBC (2025) |
 | xlsx | Anthropic 专有许可 | Anthropic, PBC (2025) |
 
-自研内容采用 [MIT License](LICENSE)，drawio 技能采用 [Apache 2.0 License](skills/drawio/LICENSE)（JGraph Ltd），其他来自 Anthropic 官方 Skill 目录的内容采用其对应的 [Anthropic 专有许可](skills/docx/LICENSE.txt)。
+自研内容采用 [MIT License](LICENSE)，drawio 技能采用 [Apache 2.0 License](skills/drawio/LICENSE)（JGraph Ltd），grill-me 技能采用 [MIT License](skills/grill-me/LICENSE)（Matt Pocock），其他来自 Anthropic 官方 Skill 目录的内容采用其对应的 [Anthropic 专有许可](skills/docx/LICENSE.txt)。
