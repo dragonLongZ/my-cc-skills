@@ -18,7 +18,7 @@ my-cc-skills/
 │   ├── readme-commit-push/          # README 更新 + Git 提交推送
 │   ├── skill-creator/               # Skill 创建与优化
 │   └── xlsx/                        # Excel 表格处理
-├── pluging/                         # 插件
+├── hooks/                           # Claude Code 钩子脚本
 │   └── windows-notification/        # Windows 桌面通知
 └── LICENSE
 ```
