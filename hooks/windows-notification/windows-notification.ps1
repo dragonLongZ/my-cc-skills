@@ -1,59 +1,62 @@
 # Windows Notification for Claude Code
-# Compatible with Windows 10/11 using multiple fallback methods
+# Uses WPF window centered on screen as notification
 
 param(
     [string]$Title = "Claude Code",
     [string]$Message = "Task Completed"
 )
 
-# Method 1: Try Windows Toast Notification (Windows 10/11)
-function Send-ToastNotification {
-    try {
-        [Windows.UI.Notifications.ToastNotificationManager, Windows.UI.Notifications, ContentType = WindowsRuntime] > $null
-        $template = '<toast><visual><binding template="ToastText02"><text id="1">' + $Title + '</text><text id="2">' + $Message + '</text></binding></visual><audio src="ms-winsoundevent:Notification.Default"/></toast>'
+Add-Type -AssemblyName PresentationFramework
+Add-Type -AssemblyName PresentationCore
+Add-Type -AssemblyName WindowsBase
 
-        $xml = New-Object Windows.Data.Xml.Dom.XmlDocument
-        $xml.LoadXml($template)
-        $toast = [Windows.UI.Notifications.ToastNotification]::new($xml)
-        [Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier('ClaudeCode').Show($toast)
-        return $true
-    } catch {
-        return $false
-    }
-}
+$xaml = @'
+<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    WindowStyle="None"
+    AllowsTransparency="True"
+    Background="Transparent"
+    Topmost="True"
+    SizeToContent="WidthAndHeight"
+    WindowStartupLocation="CenterScreen"
+    ShowInTaskbar="False"
+    Opacity="0">
+    <Border CornerRadius="10" Background="#1E1E2E" BorderBrush="#8B5CF6" BorderThickness="2" Padding="24,20">
+        <Border.Effect>
+            <DropShadowEffect Color="#8B5CF6" Opacity="0.5" BlurRadius="20" ShadowDepth="5"/>
+        </Border.Effect>
+        <StackPanel Orientation="Vertical" MaxWidth="400">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="&#x1F514;" FontSize="16" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                <TextBlock Name="TitleText" FontSize="15" FontWeight="Bold" Foreground="#E2E8F0" FontFamily="Segoe UI"/>
+            </StackPanel>
+            <TextBlock Name="MessageText" FontSize="13" Foreground="#94A3B8" Margin="0,8,0,0" TextWrapping="Wrap" FontFamily="Segoe UI"/>
+            <TextBlock Text="点击任意位置关闭" FontSize="11" Foreground="#475569" Margin="0,12,0,0" HorizontalAlignment="Right" FontStyle="Italic"/>
+        </StackPanel>
+    </Border>
+</Window>
+'@
 
-# Method 2: Use Windows Forms Balloon Notification (Fallback)
-function Send-BalloonNotification {
-    try {
-        Add-Type -AssemblyName System.Windows.Forms
-        Add-Type -AssemblyName System.Drawing
+$reader = [System.Xml.XmlReader]::Create([System.IO.StringReader]::new($xaml))
+$window = [System.Windows.Markup.XamlReader]::Load($reader)
 
-        $notification = New-Object System.Windows.Forms.NotifyIcon
-        $notification.Icon = [System.Drawing.SystemIcons]::Information
-        $notification.BalloonTipIcon = [System.Windows.Forms.ToolTipIcon]::Info
-        $notification.BalloonTipTitle = $Title
-        $notification.BalloonTipText = $Message
-        $notification.Visible = $true
-        $notification.ShowBalloonTip(5000)
-        Start-Sleep -Milliseconds 5000
-        $notification.Dispose()
-        return $true
-    } catch {
-        return $false
-    }
-}
+$window.FindName("TitleText").Text = $Title
+$window.FindName("MessageText").Text = $Message
 
-# Try methods in order
-$success = Send-ToastNotification
-if (-not $success) {
-    Write-Host "Toast notification failed, trying balloon notification..."
-    $success = Send-BalloonNotification
-}
+# Click anywhere to close
+$window.Add_MouseLeftButtonDown({ $window.Close() })
 
-if ($success) {
-    Write-Host "Notification sent successfully"
-    exit 0
-} else {
-    Write-Host "All notification methods failed"
-    exit 1
-}
+# Fade in
+$fadeIn = New-Object System.Windows.Media.Animation.DoubleAnimation 0,1,([TimeSpan]::FromMilliseconds(400))
+$window.BeginAnimation([System.Windows.Window]::OpacityProperty, $fadeIn)
+
+# Auto close
+$timer = New-Object System.Windows.Threading.DispatcherTimer
+$timer.Interval = [TimeSpan]::FromSeconds(10)
+$timer.add_Tick({
+    $window.Close()
+})
+$timer.Start()
+
+$window.ShowDialog() | Out-Null
+exit 0
