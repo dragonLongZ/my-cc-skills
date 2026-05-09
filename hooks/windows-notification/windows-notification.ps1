@@ -20,6 +20,7 @@ $xaml = @'
     SizeToContent="WidthAndHeight"
     WindowStartupLocation="CenterScreen"
     ShowInTaskbar="False"
+    ShowActivated="False"
     Opacity="0">
     <Border CornerRadius="10" Background="#1E1E2E" BorderBrush="#8B5CF6" BorderThickness="2" Padding="24,20">
         <Border.Effect>
