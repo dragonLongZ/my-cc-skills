@@ -1,4 +1,4 @@
-# Windows Notification for Claude Code
+﻿# Windows Notification for Claude Code
 # Uses WPF window centered on screen as notification
 
 param(
