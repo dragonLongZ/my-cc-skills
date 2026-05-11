@@ -10,6 +10,7 @@ my-cc-skills/
 │   └── 工程师行为准则.md             # Senior Software Engineer 行为准则
 ├── skills/                          # Claude Code 技能
 │   ├── ascii-er-diagram/            # ASCII ER 图生成
+│   ├── caveman/                     # (开发中)
 │   ├── code-reverse-engineering/    # 代码逆向分析
 │   ├── docx/                        # Word 文档处理
 │   ├── drawio/                      # draw.io 图表生成
@@ -142,6 +143,21 @@ Excel 电子表格（`.xlsx`/`.xlsm`/`.csv`/`.tsv`）的创建、编辑和分析
 
 **许可**: [Anthropic 专有许可](skills/xlsx/LICENSE.txt) — Anthropic, PBC (2025)
 
+## Hooks
+
+### windows-notification — Windows 桌面通知
+
+Claude Code 的 Windows 桌面通知钩子，在 AI 等待用户输入、需要审批或任务完成时弹出通知窗口。
+
+- **触发时机**: `AskUserQuestion` 钩子（AI 等待回复）、`PermissionRequest` 钩子（需要审批）、`Stop` 钩子（任务完成）
+- **实现方式**: 基于 WPF 自定义窗口，无边框半透明设计，屏幕居中显示，紫色主题带发光阴影
+- **用户体验**: 400ms 淡入动画，10 秒自动关闭，点击任意位置手动关闭，不抢夺输入焦点
+- **技术细节**: PowerShell 脚本 + WPF XAML，通过 `DropShadowEffect` 实现发光效果
+
+**许可**: MIT — Elon Z (2026)
+
+---
+
 ## Prompts
 
 ### 工程师行为准则
@@ -171,5 +187,6 @@ Excel 电子表格（`.xlsx`/`.xlsm`/`.csv`/`.tsv`）的创建、编辑和分析
 | pdf | Anthropic 专有许可 | Anthropic, PBC (2025) |
 | skill-creator | Anthropic 专有许可 | Anthropic, PBC (2025) |
 | xlsx | Anthropic 专有许可 | Anthropic, PBC (2025) |
+| windows-notification | MIT | Elon Z (2026) |
 
 自研内容采用 [MIT License](LICENSE)，drawio 技能采用 [Apache 2.0 License](skills/drawio/LICENSE)（JGraph Ltd），grill-me 技能采用 [MIT License](skills/grill-me/LICENSE)（Matt Pocock），其他来自 Anthropic 官方 Skill 目录的内容采用其对应的 [Anthropic 专有许可](skills/docx/LICENSE.txt)。
